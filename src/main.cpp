@@ -5,7 +5,7 @@
 #include <iostream>
 
 int main() {  
-  std::cout << LinuxParser::UpTime() << std::endl;
+  std::cout << LinuxParser::Jiffies() << std::endl;
   //System system;
   //NCursesDisplay::Display(system);
 }
