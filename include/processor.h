@@ -6,8 +6,6 @@
 class Processor {
  public:
   float Utilization();
-  std::string testing();
-
  private:
  long previdle = 0;
  long prevoiwait = 0;
