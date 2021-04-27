@@ -7,7 +7,8 @@
 #include <string>
 
 int main() {
-  std::cout << LinuxParser::TotalProcesses() << std::endl;
+  int i=1810;
+  std::cout << LinuxParser::UpTime(i)<< std::endl;
   //System system;
   //NCursesDisplay::Display(system);
 }
