@@ -1,12 +1,22 @@
 #ifndef PROCESSOR_H
 #define PROCESSOR_H
 
+#include <string>
+
 class Processor {
  public:
-  float Utilization();  // TODO: See src/processor.cpp
+  float Utilization();
+  std::string testing();
 
-  // TODO: Declare any necessary private members
  private:
+ long previdle = 0;
+ long prevoiwait = 0;
+ long prevuser = 0;
+ long prevnice = 0;
+ long prevsystem = 0;
+ long previrq = 0;
+ long prevsoftirq = 0;
+ long prevsteal = 0;
 };
 
 #endif

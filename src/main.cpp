@@ -1,14 +1,14 @@
 #include "ncurses_display.h"
 #include "system.h"
-// The latter two are include just for testing purposes, delete later!
+
+// Just for testing
+#include "processor.h"
 #include "linux_parser.h"
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
 
 int main() {
-  int i=1810;
-  std::cout << LinuxParser::UpTime(i)<< std::endl;
-  //System system;
-  //NCursesDisplay::Display(system);
+  System system;
+  NCursesDisplay::Display(system);
 }

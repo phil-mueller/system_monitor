@@ -14,6 +14,23 @@ string Format::ElapsedTime(long seconds) {
     long hours = minutes / 60;
     minutes = minutes % 60;
     std::ostringstream oss;
-    oss << hours << ":" << minutes << ":" << seconds;
+    if(hours<10){
+        oss << "0" << hours << ":";
+    }
+    else{
+        oss << hours << ":";
+    }
+    if(minutes<10){
+        oss << "0" << minutes << ":";
+    }
+    else{
+        oss << minutes << ":";
+    }
+    if(seconds<10){
+        oss << "0" << seconds;
+    }
+    else{
+        oss << seconds;
+    }
     return oss.str(); 
 }

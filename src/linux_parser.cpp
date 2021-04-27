@@ -164,7 +164,9 @@ vector<string> LinuxParser::CpuUtilization() {
 // DONE: Read and return the total number of processes
 int LinuxParser::TotalProcesses() {
   int total_procs;
-  string line,key,value;
+  vector<int> v = LinuxParser::Pids();
+  total_procs = v.size();
+  /*string line,key,value;
   std::ifstream stream(kProcDirectory+kStatFilename);
   if(stream.is_open()){
     while (std::getline(stream, line)) {
@@ -175,7 +177,7 @@ int LinuxParser::TotalProcesses() {
         break;
       }
     }
-  }
+  }*/
   return total_procs;
 }
 
