@@ -217,7 +217,7 @@ string LinuxParser::Command(int pid) {
 
 // Read Memory Consumption of a Process by PID
 string LinuxParser::Ram(int pid) {
-  string memory;
+  string memory="";
   std::ostringstream path;
   path << kProcDirectory << "/" << pid << kStatusFilename;
   std::ifstream stream(path.str());
@@ -232,9 +232,11 @@ string LinuxParser::Ram(int pid) {
       }
     }
   }
-  int memint = stoi(memory);
-  memint = memint / 1000;
-  memory = to_string(memint);
+  if(memory!=""){
+    int memint = stoi(memory);
+    memint = memint / 1000;
+    memory = to_string(memint);
+  }
   return memory;
 }
 
