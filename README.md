@@ -4,7 +4,7 @@ This project shows the development of a System Monitor for Linux, similar to the
 
 In the following screenshot, a sample output of the System Monitor is shown.
 
-![System Monitor](images/monitor.png)
+![System Monitor](images/monitor2.png)
 
 ## Linux Workspace
 Currently, the project only supports Linux operating systems. The code was developed and tested under *Ubuntu 16.04.6*.
