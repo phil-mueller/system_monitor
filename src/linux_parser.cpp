@@ -217,7 +217,7 @@ string LinuxParser::Command(int pid) {
 
 // Read Memory Consumption of a Process by PID
 string LinuxParser::Ram(int pid) {
-  string memory="";
+  string memory = "";
   std::ostringstream path;
   path << kProcDirectory << "/" << pid << kStatusFilename;
   std::ifstream stream(path.str());
@@ -232,7 +232,7 @@ string LinuxParser::Ram(int pid) {
       }
     }
   }
-  if(memory!=""){
+  if (memory != "") {
     int memint = stoi(memory);
     memint = memint / 1000;
     memory = to_string(memint);
@@ -283,7 +283,6 @@ string LinuxParser::User(int pid) {
 // Read the Uptime of a Process
 long LinuxParser::UpTime(int pid) {
   long uptime;
-  long systemjiffies = LinuxParser::Jiffies();
   long processjiffies;
   std::ostringstream path;
   path << kProcDirectory << "/" << pid << kStatFilename;
@@ -300,6 +299,6 @@ long LinuxParser::UpTime(int pid) {
       }
     }
   }
-  uptime = (systemjiffies - processjiffies) / sysconf(_SC_CLK_TCK);
+  uptime = LinuxParser::UpTime() - (processjiffies / sysconf(_SC_CLK_TCK));
   return uptime;
 }

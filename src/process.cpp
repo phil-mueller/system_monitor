@@ -25,11 +25,10 @@ float Process::CpuUtilization() const {
   float utilization;
   long activejiffies = LinuxParser::ActiveJiffies(pid_);
   long seconds = LinuxParser::UpTime(pid_);
-  utilization =
-      ((float(activejiffies) / sysconf(_SC_CLK_TCK)) / float(seconds));
+  utilization = ((static_cast<float>(activejiffies) / sysconf(_SC_CLK_TCK)) /
+                 static_cast<float>(seconds));
   return utilization;
 }
-
 // Return the command that generated this process
 string Process::Command() { return LinuxParser::Command(pid_); }
 
