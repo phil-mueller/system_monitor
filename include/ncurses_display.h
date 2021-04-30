@@ -7,6 +7,7 @@
 #include "system.h"
 
 namespace NCursesDisplay {
+// The integer n controls the number of processes to show
 void Display(System& system, int n = 10);
 void DisplaySystem(System& system, WINDOW* window);
 void DisplayProcesses(std::vector<Process>& processes, WINDOW* window, int n);

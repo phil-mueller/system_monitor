@@ -22,7 +22,7 @@ vector<Process>& System::Processes() {
   vector<int> pids_list = LinuxParser::Pids();
   processes_.clear();
   for (int pid : pids_list) {
-    processes_.emplace_back(Process(pid));
+    processes_.emplace_back(pid);
   }
   std::sort(processes_.begin(), processes_.end());
   return processes_;
@@ -35,7 +35,7 @@ Pass-Through to the Linux Parser Namespace */
 std::string System::Kernel() { return LinuxParser::Kernel(); }
 
 // Return the system's memory utilization
-float System::MemoryUtilization() { return LinuxParser::MemoryUtilization(); }
+double System::MemoryUtilization() { return LinuxParser::MemoryUtilization(); }
 
 // Return the operating system name
 std::string System::OperatingSystem() { return LinuxParser::OperatingSystem(); }

@@ -17,9 +17,17 @@ const std::string kMeminfoFilename{"/meminfo"};
 const std::string kVersionFilename{"/version"};
 const std::string kOSPath{"/etc/os-release"};
 const std::string kPasswordPath{"/etc/passwd"};
+// Keywords
+const std::string filterMemFreeString("MemFree:");
+const std::string filterMemTotalString("MemTotal:");
+const std::string filterBufferString("Buffer:");
+const std::string filterOSNameString("PRETTY_NAME");
+const std::string filterRunningProcesses("procs_running");
+const std::string filterProcessMemory("VmData:");
+const std::string filterUID("Uid:");
 
 // System
-float MemoryUtilization();
+double MemoryUtilization();
 long UpTime();
 std::vector<int> Pids();
 int TotalProcesses();

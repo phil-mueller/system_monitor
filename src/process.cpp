@@ -30,7 +30,17 @@ float Process::CpuUtilization() const {
   return utilization;
 }
 // Return the command that generated this process
-string Process::Command() { return LinuxParser::Command(pid_); }
+string Process::Command() {
+  string command;
+  command = LinuxParser::Command(pid_);
+  if (command.length() >= 40) {
+    std::ostringstream oss;
+    oss << command.substr(0, 40) << "...";
+    return oss.str();
+  } else {
+    return command;
+  }
+}
 
 // Return this process's memory utilization
 string Process::Ram() { return LinuxParser::Ram(pid_); }

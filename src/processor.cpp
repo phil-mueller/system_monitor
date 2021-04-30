@@ -6,8 +6,8 @@
 using std::stol;
 
 // Return the CPU utilization
-float Processor::Utilization() {
-  float utilization;
+double Processor::Utilization() {
+  double utilization;
   std::vector<std::string> v = LinuxParser::CpuUtilization();
   // Usage Calculation based on StackOverflow from htop source code
   const long PrevIdle = previdle + prevoiwait;
@@ -20,8 +20,8 @@ float Processor::Utilization() {
   const long Total = Idle + NonIdle;
   const long totald = Total - PrevTotal;
   const long idled = Idle - PrevIdle;
-  utilization = (static_cast<float>(totald) - static_cast<float>(idled)) /
-                static_cast<float>(totald);
+  utilization = (static_cast<double>(totald) - static_cast<double>(idled)) /
+                static_cast<double>(totald);
   // After Calculation, safe current datapoints for next iteration
   prevuser = stol(v[0]);
   prevnice = stol(v[1]);
